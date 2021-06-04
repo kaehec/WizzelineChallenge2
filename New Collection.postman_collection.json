@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "eca1581e-3ad9-4248-ab4b-320336df990d",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "New Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount_money\": {\r\n        \"currency\": \"{{currency}}\",\r\n        \"amount\": 100\r\n    },\r\n    \"idempotency_key\": \"9b51f7bc-cf63-46b5-a1ae-01dddc6661ba\",\r\n    \"source_id\": \"cnon:card-nonce-ok\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://connect.squareupsandbox.com/v2/payments",
+							"protocol": "https",
+							"host": [
+								"connect",
+								"squareupsandbox",
+								"com"
+							],
+							"path": [
+								"v2",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specify Payment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/payments/PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								"PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Payment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idempotency_key\": \"06973774-9f94-4b74-ba99-e20991897055\",\r\n    \"payment\": {\r\n      \"amount_money\": {\r\n        \"amount\": 900,\r\n        \"currency\": \"{{currency}}\"\r\n      }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/payments/PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								"PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/payments/PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY/cancel",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								"PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/payments/PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY/complete",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"payments",
+								"PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List payment refunds",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/refunds",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"refunds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refund Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Square-Version",
+								"value": "2021-05-13",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount_money\": {\r\n      \"amount\": 10,\r\n      \"currency\": \"{{currency}}\"\r\n    },\r\n    \"idempotency_key\": \"35e5a064-f7cb-43ce-b472-e3c74d6fe901\",\r\n    \"payment_id\": \"PTGWPAKlT4Bb4JSs1bGuLxZa7xNZY\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/v2/refunds",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"v2",
+								"refunds"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "password",
+				"value": "{{Bearer}}",
+				"type": "string"
+			},
+			{
+				"key": "token",
+				"value": "EAAAEMZE3gheRiRJ2rcaPv7oJrCWtrQQSwc2_r59fGONgXNuCDlodVUNqQalaFTn",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "currency",
+			"value": "USD"
+		}
+	]
+}
